@@ -9,8 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+// @RequestMapping(value = "/user")
 public class UserController {
 
+//    @RequestMapping(value = "/paid")
+//    public String getPaidUser(){
+//        return "Im a paid user.";
+//    }
+//    @RequestMapping(value = "/enterprise")
+//    public String getEnterpriseUser(){
+//        return "Im a enterprise user.";
+//    }
     @RequestMapping(value = "/user")
     public UserDto getUser(){
         List<SpecialtyDto> specialties = new ArrayList<>();
