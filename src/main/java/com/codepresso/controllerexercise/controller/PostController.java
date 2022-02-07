@@ -1,6 +1,7 @@
 package com.codepresso.controllerexercise.controller;
 
 import com.codepresso.controllerexercise.dto.PostDto;
+import com.codepresso.controllerexercise.service.PostService;
 import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.*;
@@ -9,9 +10,16 @@ import static org.springframework.web.bind.annotation.RequestMethod.*;
 @RequestMapping(value = "/post")
 public class PostController {
 
+    PostService postService;
+
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
+
     @GetMapping
-    public String getPost(){
-        return "GET /post";
+    public PostDto getPost(@RequestParam Long id){
+        PostDto result = postService.getPost(id);
+        return result;
     }
 
     @PostMapping
